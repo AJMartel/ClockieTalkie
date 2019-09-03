@@ -115,9 +115,9 @@ boolean say_time_by_position() {
       break;
     case 1:
       // PART OF DAY (missing night)
-      if (Hours > 0 && Hours < 12)
+      if (Hours > 0 && Hours < 12 && isAm)
         voice.say(spMORNING);
-      else if (Hours > 11 && Hours < 18)
+      else if ((Hours == 12 || Hours < 6) && !isAm)
         voice.say(spAFTERNOON);
       else
         voice.say(spEVENING);
